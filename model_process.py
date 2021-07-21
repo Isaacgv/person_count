@@ -13,7 +13,8 @@ import dlib
 
 @st.cache
 def load_model():
-    device = torch.device('cuda')
+    print("LOAD MODEL")
+    device = torch.device('cpu')
     weights = ['models/model/model_detect.pt']
     model = attempt_load(weights, map_location=device)
     img_size = 640
@@ -22,9 +23,9 @@ def load_model():
         model(torch.zeros(1, 3, img_size, img_size).to(device).type_as(next(model.parameters())))
 
     stride = int(model.stride.max())
-    return model, img_size, half, stride
+    return model, img_size, half, stride, device
 
-model, img_size, half, stride = load_model()
+model, img_size, half, stride, device = load_model()
 
 frame_show = st.empty()
 placeholder_up = st.empty()

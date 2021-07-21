@@ -17,6 +17,8 @@ vs = cv2.VideoCapture(video_source)
 _, frame = vs.read()
 frame = imutils.resize(frame, width=640)
 (H, W) = frame.shape[:2]
+frame_show = st.empty()
+frame_show.image(frame, channels="BGR")  
 
 st.sidebar.header('UP')
 up_x0 = st.sidebar.slider("UP X0", 0, W)
@@ -37,7 +39,6 @@ p1_down = np.array((down_x1, down_y1))
 
 
 if st.sidebar.button('MOSTRAR LIHAS'):
-    
     show_lines(frame, p0_up, p1_up, p0_down, p1_down)
 
 
