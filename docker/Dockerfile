@@ -1,7 +1,7 @@
 FROM nvcr.io/nvidia/l4t-pytorch:r32.5.0-pth1.7-py3
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install build-essential cmake pkg-config -y
-RUN apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng-dev -y
+RUN apt-get install libjpeg-dev libtiff5-dev libpng-dev -y
 RUN apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev -y
 RUN apt-get install libxvidcore-dev libx264-dev -y
 RUN apt-get install libatlas-base-dev gfortran -y
