@@ -1,0 +1,14 @@
+services: 
+ pytorch_exec:
+    restart: always
+    image: nvcr.io/nvidia/l4t-pytorch:r32.5.0-pth1.7-py3
+    runtime: nvidia
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: 'pytorch_exec'
+    volumes:
+     - './:/etc/project'
+    ports:
+     - '8501:8501'
+  
